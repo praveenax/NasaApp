@@ -1,0 +1,98 @@
+<style>
+
+</style>
+
+
+<div style="width:100%;height:550px;">
+
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-default" style="height:380px; ">
+
+                <bat-scorecard></bat-scorecard>
+
+                <br>
+
+                <bowlscorecard></bowlscorecard>
+
+            </div>
+
+
+        </div>
+        <div class="col-md-6">
+            <div style="height:380px; ">
+
+                <battingcontrol></battingcontrol>
+
+                <bowlingcontrol></bowlingcontrol>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="panel panel-default" style="height:160px; ">
+
+                <div class="col-md-12" style="margin-top:20px;">
+                    Select your Batsman
+                    <br>
+                    <select ng-model="selectBat" class="form-control" name="" id="">
+                        <option value="{{bat.name}}" ng-repeat="bat in batList">{{bat.name}}</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="col-md-12" style="margin-top:20px;">
+                    Select your Bowler
+                    <br>
+                    <select ng-model="selectBowl" class="form-control" name="" id="">
+                        <option value="{{bowl.name}}" ng-repeat="bowl in bowlList">{{bowl.name}}</option>
+
+                    </select>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="col-md-8">
+            <div style="height:160px; " class="panel panel-default">
+
+                <div class="col-md-12">
+                    Commentary:
+                    <br>
+
+                    <div style="height:80px;background:grey;color:white;overflow-y: auto;" ng-model="comment"><pre style="background: grey;
+    color: white;border:0px solid grey;">{{comment}}</pre></div>
+
+
+                </div>
+                <button class="btn btn-info col-md-4 col-md-offset-2" style="margin-top:10px;" ng-click="onSimulate(6)">Simulate 1 Over</button>
+
+                <button class="btn btn-info col-md-4 col-md-offset-1" style="margin-top:10px;" ng-click="onSimulate(1)">Simulate 1 Ball</button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>

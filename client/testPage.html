@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer</title>
+
+    <link rel="stylesheet" href="css/lib/bootstrap.css">
+    <link rel="stylesheet" href="css/lib/font-awesome.css">
+    <link rel="stylesheet" href="css/lib/dashboard.css">
+    <link rel="stylesheet" href="css/lib/jquery-ui.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/mystyle.css">
+    <style>
+        body > div.col-md-2 > ul > li.active > a {
+            background: #27ae60;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .msg {
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body style="background: #C7C7C7;">
+
+
+
+    <headerbar></headerbar>
+
+    <div>
+
+        <div id="chatBox" class="panel panel-default col-md-8 col-md-offset-2" style="height:500px;">
+
+
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <input id="chatter" type="text" class="form-control">
+        </div>
+
+
+        <button id="sendBtn" class="btn btn-info col-md-8 col-md-offset-2">Send</button>
+    </div>
+
+
+
+
+
+    <script src="js/lib/socket.io-1.4.5.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/angular-google-maps.min.js"></script>
+    <script src="js/lib/Chart.js"></script>
+
+    <!--    <script src="../node_modules/socket.io/lib/socket.js"></script>-->
+
+
+    <script src="js/lib/d3.min.js"></script>
+    <script src="js/lib/topojson.min.js"></script>
+    <script src="js/lib/datamaps.world.min.js"></script>
+
+
+
+    <!--
+    <script src="js/mockData.js"></script>
+<script src="js/util.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/directive.js"></script>
+-->
+
+
+    <script>
+        $(document).ready(function () {
+            var socket = io();
+
+            socket.on('connection', function (socket) {
+                console.log('a user connected');
+                socket.on('disconnect', function () {
+                    console.log('user disconnected');
+                });
+            });
+
+
+            $("#sendBtn").on("click", function () {
+                var txt = $("#chatter").val();
+                //                console.log(txt);
+                socket.emit('chaty', txt);
+                $("#chatter").val("");
+
+
+
+
+            });
+
+            socket.on('new', function (socket) {
+                console.log("trigger");
+                console.log(socket);
+                $("#chatBox").append("<div class='panel panel-default'>" + socket["message"] + "</div>");
+
+            });
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>

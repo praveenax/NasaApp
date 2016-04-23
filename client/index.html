@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer</title>
+
+    <link rel="stylesheet" href="css/lib/bootstrap.css">
+    <link rel="stylesheet" href="css/lib/font-awesome.css">
+    <link rel="stylesheet" href="css/lib/dashboard.css">
+    <link rel="stylesheet" href="css/lib/jquery-ui.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/mystyle.css">
+    <style>
+        body > div.col-md-2 > ul > li.active > a {
+            background: #27ae60;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body ng-app="spacesim" ng-controller="cntrl" style="background: #C7C7C7;">
+
+
+
+    <headerbar></headerbar>
+
+
+    <div class="col-md-12">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div ng-view class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-0" style="    padding: 10px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/angular-google-maps.min.js"></script>
+    <script src="js/lib/Chart.js"></script>
+    <script src="js/lib/socket.io-1.4.5.js"></script>
+
+
+    <script src="js/lib/d3.min.js"></script>
+    <script src="js/lib/topojson.min.js"></script>
+    <script src="js/lib/datamaps.world.min.js"></script>
+
+
+
+    <script src="js/mockData.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+
+
+
+
+</body>
+
+</html>
